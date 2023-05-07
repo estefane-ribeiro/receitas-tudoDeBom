@@ -1,0 +1,19 @@
+<%- include('../../partials/header.ejs') %> 
+<body>
+    <%- include('../../partials/navbarAdmin.ejs') %> 
+    <div class="container">
+        <form action="/recipes/create" method="post" enctype="multipart/form-data">
+            <input type="text" name="title" id="title
+            " placeholder="Título da receita">
+            <!-- <input type="text" name="body" id="body
+            " placeholder="Escreva aqui a receita"> -->
+            <textarea name="body" id="" cols="30" rows="10" placeholder="Escreva aqui a receita"></textarea>
+            <input type="file" name="image" id="image">
+            
+           <button type="submit">Enviar</button>
+        </form>
+        
+    </div>
+
+</body>
+<%- include('../../partials/footer.ejs') %> 

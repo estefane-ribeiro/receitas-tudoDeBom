@@ -1,0 +1,18 @@
+<%- include('../../partials/header.ejs') %>
+<body>
+    <%- include('../../partials/navbar.ejs') %>
+    <div class="container">
+        <h1>Cadastre-se</h1>
+        <form action="/users/create" method="post">
+            <input type="email" name="email" id="email" placeholder="Informe seu email">
+            <input type="password" name="password" id="password" placeholder="Senha">
+            <a href="/login">Login</a>
+            <button type="submit">Entrar</button>
+            <div class="controls">
+                <button type="reset">Limpar</button>
+            </div>
+            
+        </form>
+    </div>
+</body>
+<%- include('../../partials/footer.ejs') %>

@@ -1,0 +1,27 @@
+<%- include('../../partials/header.ejs') %> 
+<body>
+    <%- include('../../partials/navbarAdmin.ejs') %> 
+    <div class="container">
+        <h1>Receitas</h1>
+        <a href="/admin/recipes/create" class="btn">Adicionar nova Receita</a>
+        <div class="recipes">
+            <% recipes.forEach(recipe => { %>
+                <a href="/admin/<%= recipe.slug %>">
+                    <div class="recipe">
+                        <div class="back">
+                            <h2><%= recipe.title %></h2>
+                        </div>
+                        <img src="../../../images/<%= recipe.nomeImage %>" alt="">
+                        
+                    </div>
+                </a>
+            <% }) %>
+
+        </div>
+        
+        
+        
+    </div>
+
+</body>
+<%- include('../../partials/footer.ejs') %> 

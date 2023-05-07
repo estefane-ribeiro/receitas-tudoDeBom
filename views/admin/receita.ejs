@@ -1,0 +1,18 @@
+<%- include('../partials/header.ejs') %> 
+<body>
+    <%- include('../partials/navbarAdmin.ejs') %> 
+    <div class="container">
+        <h1><%= recipe.title %></h1>
+        <a href="/admin/recipes/create" class="btn">Adicionar nova Receita</a>
+        <a href="" class="btn">Editar Receita</a>
+        <a href="" class="btn">Excluir Receita</a>
+        <div class="recipes">
+                <img src="../../../images/<%= recipe.nomeImage %>" alt="<%= recipe.title %>">
+                <p>
+                    <%= recipe.body %>
+                </p>    
+        </div>
+    </div>
+
+</body>
+<%- include('../partials/footer.ejs') %> 

@@ -12,6 +12,7 @@
 html {
     --black: #000;
     --white: #fff;
+    --details: #AD00FF;
 }
 
 body {
@@ -36,3 +37,105 @@ body {
     height: calc(100vh - 70px);
     object-fit: cover;
 }
+
+.container {
+    padding-top: 50px;
+    margin: auto;
+    width: 80%;
+    color: var(--white);
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.container form input, .container form textarea {
+    width: 500px;
+    border-radius: 8px;
+    border: transparent;
+    background-color: rgba(237, 237, 237, 0.35);
+    padding: 20px;
+}
+.container form input{
+    height: 50px;
+
+}
+
+.container form button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: transparent;
+    background-color: var(--details);
+    color: var(--white);
+}
+
+.container form button:hover {
+    background-color: #b20dff;
+}
+
+.container form input::placeholder, .container form textarea::placeholder {
+    color: var(--white);
+}
+
+h1 {
+    font-size: calc(1.375rem + 1.5vw);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: var(--details);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.recipes {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipes > img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.recipe {
+    width: 300px;
+    height: 250px;
+    position: relative;
+    border-radius: 8px;
+}
+
+.recipe img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+
+}
+
+.recipe .back {
+    position: absolute;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)) ;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    border-radius: 8px;
+
+
+    
+}
+

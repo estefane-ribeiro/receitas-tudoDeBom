@@ -7,7 +7,10 @@ header {
     padding: 10px 50px;
     align-items: center;
 }
-
+nav {
+    display: flex;
+    align-items: center;
+}
 nav ul {
     display: flex;
     gap: 30px;
