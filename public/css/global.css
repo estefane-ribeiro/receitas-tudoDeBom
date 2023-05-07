@@ -18,8 +18,8 @@ html {
 body {
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
     background: rgba(0, 0, 0, 0.85);
+    overflow-x: hidden;
 
 }
 
@@ -39,7 +39,7 @@ body {
 }
 
 .container {
-    padding-top: 50px;
+    padding-block: 50px;
     margin: auto;
     width: 80%;
     color: var(--white);
@@ -53,16 +53,29 @@ body {
     align-items: center;
 }
 
-.container form input, .container form textarea {
+.container form input, select {
     width: 500px;
     border-radius: 8px;
     border: transparent;
     background-color: rgba(237, 237, 237, 0.35);
-    padding: 20px;
+   
 }
-.container form input{
+.container form input, select{
     height: 50px;
 
+}
+
+select{
+    color: white;
+    padding: 10px 20px;
+}
+
+option {
+    color: #000;
+}
+
+.container form input {
+    padding: 20px;
 }
 
 .container form button {
@@ -139,3 +152,11 @@ h1 {
     
 }
 
+.container form.new-recipe input, .container.new-recipe form textarea, .new-recipe select {
+    width: 80%;
+
+}
+
+.tox-tinymce {
+    width: 80%;
+}

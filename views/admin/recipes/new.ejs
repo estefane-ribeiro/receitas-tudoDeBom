@@ -2,12 +2,20 @@
 <body>
     <%- include('../../partials/navbarAdmin.ejs') %> 
     <div class="container">
-        <form action="/recipes/create" method="post" enctype="multipart/form-data">
+        <h1>Nova receita</h1>
+        <form action="/recipes/create" method="post" enctype="multipart/form-data" class="new-recipe">
             <input type="text" name="title" id="title
             " placeholder="Título da receita">
             <!-- <input type="text" name="body" id="body
             " placeholder="Escreva aqui a receita"> -->
-            <textarea name="body" id="" cols="30" rows="10" placeholder="Escreva aqui a receita"></textarea>
+            <textarea name="body" id="body" placeholder="Escreva aqui a receita"></textarea>
+            <select name="category" class="form-control">
+                <option>Selecione a categoria de receita.</option>
+     
+                <option value="">Salada</option>
+                <option value="">Doces</option>
+                
+              </select>
             <input type="file" name="image" id="image">
             
            <button type="submit">Enviar</button>
@@ -16,4 +24,28 @@
     </div>
 
 </body>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5.8.2-114/langs/pt_BR.js"></script>
+  <script src="/tinymce/js/tinymce/tinymce.min.js"></script>
+  <script>
+    tinymce.init({
+      language: 'pt_BR',
+      selector: '#body',
+      plugins: [
+        'advlist',
+        'autolink',
+        'link',
+        'image',
+        'lists',
+        'preview',
+        'searchreplace',
+        'wordcount',
+        'fullscreen',
+        'insertdatetime',
+        'media',
+        'save',
+        'table',
+        'emoticons'
+      ]
+    })
+  </script>
 <%- include('../../partials/footer.ejs') %> 
