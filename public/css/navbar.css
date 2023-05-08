@@ -9,16 +9,18 @@ header {
 }
 nav {
     display: flex;
-    align-items: center;
+    align-items: center !important;
 }
 nav ul {
     display: flex;
     gap: 30px;
+    margin: 0;
 }
 
 nav ul a {
     color: #fff;
     transition: 0.5s;
+    text-decoration: none;
 }
 
 nav ul a:hover {

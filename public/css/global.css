@@ -168,3 +168,17 @@ h1 {
     padding: 100px 30px;
     background-color: #000;
 }
+
+.card {
+    color: #000;
+    margin-top: 50px;
+}
+
+.controls {
+    display: flex;
+    gap: 20px;
+}
+
+.delete {
+    display: inline;
+}

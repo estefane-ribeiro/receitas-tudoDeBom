@@ -4,6 +4,7 @@ const Category = require('./Category')
 const adminAuth = require('../middlewares/adminAuth')
 const slugfy = require('slugify')
 const multer = require('multer')
+const Recipe = require('../recipe/Recipe')
 
 const storage = multer.diskStorage({
     destination: function(req, image, cb) {
@@ -47,6 +48,21 @@ router.post('/categories/create', upload.single('image'), adminAuth, (req, res) 
     })
 })
 
+router.get('/admin/category/:slug', adminAuth, (req, res) => {
+    const slug = req.params.slug
+    Category.findOne({
+        where: {
+            slug: slug
+        },
+        include: [{ model: Recipe }]
+    }).then(category => {
+        if(category != undefined) {
+            Category.findAll().then(categories => {
+                res.render('admin/categories/categories', { recipes: category.recipes, categories })
+            })
+        }
+    })
+})
 
 
 module.exports = router

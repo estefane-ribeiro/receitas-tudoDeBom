@@ -30,7 +30,7 @@ router.get('/login', (req, res) => {
     res.render('admin/users/login.ejs')
 })
 
-router.get('/admin', (req, res) => {
+router.get('/admin', adminAuth, (req, res) => {
     res.render('admin/index.ejs')
 })
 

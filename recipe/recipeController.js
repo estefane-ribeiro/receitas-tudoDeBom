@@ -67,4 +67,52 @@ router.get('/admin/:slug', adminAuth, (req, res) => {
     })
 })
 
+router.post('/recipe/delete', adminAuth,  (req, res) => {
+    const id = req.body.id
+    if(id != undefined && !isNaN(id)) {
+        Recipe.destroy({
+            where: {
+                id: id
+            }
+        }).then(() => res.redirect('/admin/recipes'))
+    } else {
+        res.redirect('/admin/recipes')
+    }
+})
+
+router.get('/admin/recipe/edit/:id', (req, res) => {
+    const id = req.params.id
+    if(isNaN(id)){
+        res.redirect('/admin/recipes')
+    } 
+    Recipe.findByPk(id).then(recipe => {
+        if(recipe != undefined) {
+            Category.findAll().then(categories => {
+                res.render('admin/recipes/edit', { recipe, categories })
+            })
+        }
+    })
+})
+
+router.post('/recipe/update', adminAuth, upload.single('image'), (req, res) => {
+    const id = req.body.id
+    const title = req.body.title
+    const body = req.body.body
+    // const nomeImage = req.body.nomeImage ? req.file.filename : ''
+    const categoryId = req.body.categoryId
+
+    Recipe.update({
+        title: title,
+        body: body,
+        slug: slugfy(title),
+        // nomeImage: nomeImage,
+        categoryId: categoryId
+    },
+    {
+        where: {
+            id: id
+        }
+    }).then(() => res.redirect('/admin/recipes')).catch(() => res.redirect('/admin'))
+})
+
 module.exports = router

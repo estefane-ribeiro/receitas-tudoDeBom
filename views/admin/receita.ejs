@@ -2,15 +2,24 @@
 <body>
     <%- include('../partials/navbarAdmin.ejs') %> 
     <div class="container">
-        <h1><%= recipe.title %></h1>
-        <a href="/admin/recipes/create" class="btn">Adicionar nova Receita</a>
-        <a href="" class="btn">Editar Receita</a>
-        <a href="" class="btn">Excluir Receita</a>
-        <div class="receita">
+        <div class="controls">
+            <a href="/admin/recipes/create" class="btn">Adicionar nova Receita</a>
+            <a href="/admin/recipe/edit/<%= recipe.id %>" class="btn">Editar Receita</a>
+            <form action="/recipe/delete" method="post" class="delete">
+                <input type="hidden" name="id" value="<%= recipe.id %>" />
+                <button class="btn">Excluir Receita</button>
+            </form>
 
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h1><%= recipe.title %></h1>
+            </div>
+            <div class="card-body">
                 <p>
                     <%- recipe.body %>
                 </p>    
+            </div>
         </div>
     </div>
 
