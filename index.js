@@ -6,6 +6,7 @@ const usersController = require('./user/usersController')
 const User = require('./user/User')
 const connection = require('./database/database')
 const recipesController = require('./recipe/recipeController')
+const categoriesController = require('./categories/categoriesController')
 
 // uso de arquivos estaticos
 app.use(express.static('public'))
@@ -26,6 +27,7 @@ connection.authenticate().then(() => ('Conectado ao banco de dados')).catch(e =>
 
 app.use('/', usersController)
 app.use('/', recipesController)
+app.use('/', categoriesController)
 
 // home
 app.get('/', (req, res) => {

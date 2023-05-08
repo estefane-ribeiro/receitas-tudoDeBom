@@ -1,0 +1,17 @@
+<%- include('../../partials/header.ejs') %> 
+<body>
+    <%- include('../../partials/navbarAdmin.ejs') %> 
+    <div class="container">
+        <h1>Nova categoria</h1>
+        <form action="/categories/create" method="post" enctype="multipart/form-data" class="new-recipe">
+            <input type="text" name="title" id="title
+            " placeholder="Título da categoria">
+            <input type="file" name="image" id="image">
+            
+           <button type="submit">Enviar</button>
+        </form>
+        
+    </div>
+
+</body>
+<%- include('../../partials/footer.ejs') %> 

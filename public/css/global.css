@@ -160,3 +160,11 @@ h1 {
 .tox-tinymce {
     width: 80%;
 }
+
+.receita {
+   
+    max-width: 90%;
+    margin: auto;
+    padding: 100px 30px;
+    background-color: #000;
+}

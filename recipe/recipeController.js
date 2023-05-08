@@ -4,8 +4,7 @@ const router = express.Router()
 const  adminAuth = require('../middlewares/adminAuth')
 const multer = require('multer')
 const slugfy = require('slugify')
-const path = require('path')
-
+const Category = require('../categories/Category')
 
 const storage = multer.diskStorage({
     destination: function(req, image, cb) {
@@ -19,7 +18,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage })
 
 router.get('/admin/recipes/create', adminAuth, (req, res) => {
-    res.render('admin/recipes/new.ejs')
+    Category.findAll().then(categories => res.render('admin/recipes/new', { categories }))
+    
 })
 
 router.post('/recipes/create', upload.single('image'), adminAuth, (req, res) => {
@@ -47,7 +47,8 @@ router.post('/recipes/create', upload.single('image'), adminAuth, (req, res) => 
 
 router.get('/admin/recipes', adminAuth,(req, res) => {
     Recipe.findAll({
-        order: [['id', 'DESC']]
+        order: [['id', 'DESC']],
+        include: [{ model: Category }]
     }).then(recipes => res.render('admin/recipes/index', {recipes}))
 })
 

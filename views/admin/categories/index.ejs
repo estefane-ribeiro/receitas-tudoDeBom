@@ -1,0 +1,24 @@
+<%- include('../../partials/header.ejs') %> 
+<body>
+    <%- include('../../partials/navbarAdmin.ejs') %> 
+    <div class="container">
+        <h1>Categorias</h1>
+        <a href="/admin/categories/create" class="btn">Nova categoria</a>
+        <div class="recipes">
+            <% categories.forEach(category => { %>
+                <a href="/admin/<%= category.slug %>">
+                    <div class="recipe">
+                        <div class="back">
+                            <h2><%= category.title %></h2>
+                        </div>
+                        <img src="../../../images/<%= category.nomeImage %>" alt="<%= category.title %>">
+                        
+                    </div>
+                </a>
+            <% }) %>
+
+        </div>
+    </div>
+
+</body>
+<%- include('../../partials/footer.ejs') %> 

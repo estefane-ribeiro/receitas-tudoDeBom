@@ -10,11 +10,11 @@
             " placeholder="Escreva aqui a receita"> -->
             <textarea name="body" id="body" placeholder="Escreva aqui a receita"></textarea>
             <select name="category" class="form-control">
-                <option>Selecione a categoria de receita.</option>
-     
-                <option value="">Salada</option>
-                <option value="">Doces</option>
+                <option disabled>Selecione a categoria de receita.</option>
+                <% categories.forEach(category => { %>
+                <option value="<%= category.id %>"><%= category.title %></option>
                 
+                <% }) %> 
               </select>
             <input type="file" name="image" id="image">
             
